@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Time Left</title>
+</head>
+<body>
+
+    <div style="padding-left: 35px;">
+        <div style="padding-bottom: 1px;">
+            <h1 style="line-height: 1px;">Time left until...</h1>
+        </div>
+        
+        <h1 id="sat"></h1>
+        <h1 id="schoolYearEnd"> </h1>
+        <h1 id="highschoolEnd"></h1>
+        <h1 id="off"></h1>
+    </div>
+    
+
+
+    <script>
+        let date = new Date();
+        let time = date.getTime();
+        var offDaysNames = ["Veterans Day", "Thanksgiving Recess", "Winter Recess", "Dr. Martin Luter King Jr. day", "Professional Development Day", 
+        "Midwinter Recess", "Spring Recess", "Eid al-Fitr", "Memorial Day", "Anniversary Day", "Regents Week (Good Luck)"];
+        var offDaysTimes = [1668142800000, 1669266000000,1671858000000, 1673845200000, 1675054800000, 1676696400000, 1680753600000, 1682049600000, 
+        1685332800000, 1686196800000, 1686715200000];
+        setInterval(function(){
+            date = new Date();
+            time = date.getTime();
+            
+            document.getElementById("sat").textContent="SAT: " + tt(1678510800000);
+            document.getElementById("schoolYearEnd").textContent="school ends: " + tt(1687838400000);
+            document.getElementById("highschoolEnd").textContent="graduation: " + tt(1719460800000);
+
+            for(let i=0; i<11; i++){
+                if (offDaysTimes[i]-time>0) {
+                    document.getElementById("off").textContent= offDaysNames[i] + ": " + tt(offDaysTimes[i]);
+                    break;
+                }
+            }
+        }, 100);
+        
+            
+        
+            
+        
+        
+        
+
+        function tt(date){
+        var days = Math.round((date-time)/86400000);
+        var hours = Math.round(((date-time)%86400000)/3600000);
+        var mintues = Math.round((((date-time)%86400000)%3600000)/60000);
+        var seconds = Math.round(((((date-time)%86400000)%3600000)%60000)/1000);
+        return(days + "d " + hours + "h " + seconds + "s");
+        }
+
+    </script>
+</body>
+</html>
+
+
