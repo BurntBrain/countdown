@@ -1,7 +1,7 @@
 
 H1 {
     color: rgb(69, 42, 165);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'FreeMono', 'monospace', Arial, sans-serif;
     font-size: 60px;
     line-height: 0.8;
     
@@ -16,7 +16,29 @@ tlu {
     padding-bottom: 50px;
 }
 
-times {
-    padding-top: 50px;
+.thanks H1{
+    color: rgb(255, 243, 80);
 }
 
+.hallow H1{
+    color: rgb(255, 243, 80);
+}
+
+.chris H1{
+    color:aliceblue;
+}
+
+.bigMS H1{
+    position: absolute;
+    top: 115px;
+    left:1200px;
+    font-size: 150px;
+}
+.utc H1{
+    font-size: 20px;
+    padding-top: 1px;
+}
+
+.padTime H1{
+    padding-left: 40px;
+}
