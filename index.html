@@ -51,17 +51,20 @@
             document.getElementById("schoolYearEnd").textContent="school ends: " + tt(1687838400000);
             document.getElementById("highschoolEnd").textContent="graduation: " + tt(1719460800000);
 
-            document.getElementById("m/s").textContent=uniMin + "m " + (60-date.getSeconds()) + "s";
+            document.getElementById("m/s").textContent="";
+            //document.getElementById("m/s").textContent=uniMin + "m " + (60-date.getSeconds()) + "s";
+
             for(let i=0; i<11; i++){
                 if (offDaysTimes[i]-time>0) {
                     document.getElementById("off").textContent= offDaysNames[i] + ": " + tt(offDaysTimes[i]);
                     break;
                 }
             }
+            
             if(date.getMonth()==9 && date.getDate>21) {
                 document.body.style.background = '#9435DBFF';
                 document.getElementById("times").className = "hallow";
-            } else if (date.getMonth()==10 && date.getDate()>17) {
+            } else if (date.getMonth()==10 && date.getDate()>17 && date.getDate<27) {
                 document.body.style.background = '#DB400FFF';
                 document.getElementById("times").className = "thanks";
             } else if (date.getMonth()==11 && date.getDate()>19) {
@@ -72,24 +75,22 @@
         
 
 
-        function tt(date){
+        function tt(datePara){
         var finalAnswer = "";
-        var years = Math.round((date-time)/31557600000);
-        var days = Math.round(((date-time)%31557600000)/86400000);
-        var hours = Math.round(((date-time)%86400000)/3600000);
-        var mintues = Math.round((((date-time)%86400000)%3600000)/60000);
-        var seconds = Math.round(((((date-time)%86400000)%3600000)%60000)/1000);
+        var years = Math.floor((datePara-time)/31557600000);
+        var days = Math.floor(((datePara-time)%31557600000)/86400000);
+        var hours = Math.floor(((datePara-time)%86400000)/3600000);
+        var mintues = Math.floor((((datePara-time)%86400000)%3600000)/60000);
+        var seconds = Math.floor(((((datePara-time)%86400000)%3600000)%60000)/1000);
 
-        finalAnswer = years + "y " + days + "d " + hours + "h ";
+        finalAnswer = years + "y " + days + "d " + hours + "h "+ mintues + "m " + seconds + "s";
 
-        if(years==0)
-            finalAnswer = days + "d " + hours + "h ";
-        else if(days==0 && years==0)
-            finalAnswer = hours + "h "
-        else if(hours==0 && days==0 && years==0)
-            finalAnswer = years + "y " + days + "d " + hours + "h "+ mintues + "m " + seconds + "s";
-        
-        
+        if(years == 0)
+        finalAnswer = days + "d " + hours + "h "+ mintues + "m " + seconds + "s";
+        else if(years == 0 && days ==0)
+        finalAnswer = hours + "h "+ mintues + "m " + seconds + "s";
+        else if(years == 0 && days ==0 && mintues == 0)
+        finalAnswer = seconds + "s";
         return(finalAnswer);
         }
 
