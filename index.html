@@ -31,9 +31,9 @@
         let date = new Date();
         let time = date.getTime();
         var offDaysNames = ["Veterans Day", "Thanksgiving Recess", "Winter Recess", "Dr. Martin Luter King Jr. day", "Professional Development Day", 
-        "Midwinter Recess", "Spring Recess", "Eid al-Fitr", "Memorial Day", "Anniversary Day", "Regents Week (Good Luck)"];
+        "Midwinter Recess", "Spring Recess", "Eid al-Fitr", "Memorial Day", "Anniversary Day", "Regents Week (Good Luck)", "Last Day of School", "First Day of School"];
         var offDaysTimes = [1668142800000, 1669266000000,1671858000000, 1673845200000, 1675054800000, 1676696400000, 1680753600000, 1682049600000, 
-        1685332800000, 1686196800000, 1686715200000];
+        1685332800000, 1686196800000, 1686715200000, 1687838400000, 1694145600000];
         var uniMin = 60-date.getMinutes()-1;
         let nextDay = (Math.round(time/86400000)*86400000-68400000+86400000);
         setInterval(function(){
@@ -54,7 +54,7 @@
             document.getElementById("m/s").textContent="";
             //document.getElementById("m/s").textContent=uniMin + "m " + (60-date.getSeconds()) + "s";
 
-            for(let i=0; i<11; i++){
+            for(let i=0; i<offDaysNames.length; i++){
                 if (offDaysTimes[i]-time>0) {
                     document.getElementById("off").textContent= offDaysNames[i] + ": " + tt(offDaysTimes[i]);
                     break;
