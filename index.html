@@ -30,10 +30,8 @@
     <script>
         let date = new Date();
         let time = date.getTime();
-        var offDaysNames = ["Veterans Day", "Thanksgiving Recess", "Winter Recess", "Dr. Martin Luter King Jr. day", "Professional Development Day", 
-        "Midwinter Recess", "Spring Recess", "Eid al-Fitr", "Memorial Day", "Anniversary Day", "Regents Week (Good Luck)", "Last Day of School", "First Day of School"];
-        var offDaysTimes = [1668142800000, 1669266000000,1671858000000, 1673845200000, 1675054800000, 1676696400000, 1680753600000, 1682049600000, 
-        1685332800000, 1686196800000, 1686715200000, 1687838400000, 1694145600000];
+        var offDaysNames = ["Yom Kippur", "Italian Heritage Day", "Election Day", "Thanksgiving Recess", "Winter Recess", "Dr. Martin Luther King Jr. Day", "Regents Week", "Professional Development Day", "Midwinter Recess", "Easter", "Eid", "Spring Recess", "Memorial Day","Anniversary Day","Regents", "Eid al-Adha","Juneteenth"];
+        var offDaysTimes = [1695614400000,1696824000000,1699333200000,1700715600000,1703307600000,1705294800000,1705986000000,1706504400000,1708318800000, 1711684800000, 1712721600000,1713758400000,1716782400000,1717646400000,1718337600000,1718596800000,1718769600000];
         var uniMin = 60-date.getMinutes()-1;
         let nextDay = (Math.round(time/86400000)*86400000-68400000+86400000);
         setInterval(function(){
